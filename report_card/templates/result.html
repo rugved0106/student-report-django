@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+<h2>Result for Student: {{ queryset.0.student.name }}</h2><br>
+
+<h5>Total Marks Obtained: <i style="font-weight: bolder;">{{ total_marks.total_marks }}</i> </h5>
+<h5>Rank:<i style="font-weight: bolder;">{{ s_rank }}</h5>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Subject</th>
+      <th scope="col">Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for mark in queryset %}
+    <tr>
+      <td style = "text-align: left;">{{ mark.subject.s_name }}</td>
+      <td>{{ mark.marks }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
